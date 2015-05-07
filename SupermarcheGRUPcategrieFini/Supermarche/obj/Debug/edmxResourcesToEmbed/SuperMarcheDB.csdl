@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="MarcketDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="MarcketDBEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Products" EntityType="MarcketDBModel.Products" />
+    <EntitySet Name="Sections" EntityType="MarcketDBModel.Sections" />
+    <EntitySet Name="Employees" EntityType="MarcketDBModel.Employees" />
+    <EntitySet Name="Checkouts" EntityType="MarcketDBModel.Checkout" />
+    <AssociationSet Name="SectionsEmployees" Association="MarcketDBModel.SectionsEmployees">
+      <End Role="Sections" EntitySet="Sections" />
+      <End Role="Employees" EntitySet="Employees" />
+    </AssociationSet>
+    <AssociationSet Name="ProductsSections" Association="MarcketDBModel.ProductsSections">
+      <End Role="Products" EntitySet="Products" />
+      <End Role="Sections" EntitySet="Sections" />
+    </AssociationSet>
+    <AssociationSet Name="ProductsCheckout" Association="MarcketDBModel.ProductsCheckout">
+      <End Role="Products" EntitySet="Products" />
+      <End Role="Checkout" EntitySet="Checkouts" />
+    </AssociationSet>
+    <AssociationSet Name="CheckoutEmployees" Association="MarcketDBModel.CheckoutEmployees">
+      <End Role="Checkout" EntitySet="Checkouts" />
+      <End Role="Employees" EntitySet="Employees" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Products">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="Price" Type="Int32" Nullable="false" DefaultValue="0" />
+    <Property Name="Quantity" Type="Int32" Nullable="false" DefaultValue="0" />
+    <Property Name="Status" Type="String" Nullable="false" DefaultValue="Avaible" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="Sections" Relationship="MarcketDBModel.ProductsSections" FromRole="Products" ToRole="Sections" />
+    <NavigationProperty Name="Checkouts" Relationship="MarcketDBModel.ProductsCheckout" FromRole="Products" ToRole="Checkout" />
+  </EntityType>
+  <EntityType Name="Sections">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Categorie" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="Employees" Relationship="MarcketDBModel.SectionsEmployees" FromRole="Sections" ToRole="Employees" />
+    <NavigationProperty Name="Products" Relationship="MarcketDBModel.ProductsSections" FromRole="Sections" ToRole="Products" />
+  </EntityType>
+  <EntityType Name="Employees">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="FirstName" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="Fonction" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="Sections" Relationship="MarcketDBModel.SectionsEmployees" FromRole="Employees" ToRole="Sections" />
+    <NavigationProperty Name="Checkouts" Relationship="MarcketDBModel.CheckoutEmployees" FromRole="Employees" ToRole="Checkout" />
+  </EntityType>
+  <EntityType Name="Checkout">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <NavigationProperty Name="Products" Relationship="MarcketDBModel.ProductsCheckout" FromRole="Checkout" ToRole="Products" />
+    <NavigationProperty Name="Employees" Relationship="MarcketDBModel.CheckoutEmployees" FromRole="Checkout" ToRole="Employees" />
+  </EntityType>
+  <Association Name="SectionsEmployees">
+    <End Type="MarcketDBModel.Sections" Role="Sections" Multiplicity="*" />
+    <End Type="MarcketDBModel.Employees" Role="Employees" Multiplicity="*" />
+  </Association>
+  <Association Name="ProductsSections">
+    <End Type="MarcketDBModel.Products" Role="Products" Multiplicity="*" />
+    <End Type="MarcketDBModel.Sections" Role="Sections" Multiplicity="*" />
+  </Association>
+  <Association Name="ProductsCheckout">
+    <End Type="MarcketDBModel.Products" Role="Products" Multiplicity="*" />
+    <End Type="MarcketDBModel.Checkout" Role="Checkout" Multiplicity="*" />
+  </Association>
+  <Association Name="CheckoutEmployees">
+    <End Type="MarcketDBModel.Checkout" Role="Checkout" Multiplicity="*" />
+    <End Type="MarcketDBModel.Employees" Role="Employees" Multiplicity="*" />
+  </Association>
+</Schema>

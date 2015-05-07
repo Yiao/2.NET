@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="MarcketDBModelStoreContainer" CdmEntityContainer="MarcketDBEntities">
+    <EntitySetMapping Name="Products">
+      <EntityTypeMapping TypeName="IsTypeOf(MarcketDBModel.Products)">
+        <MappingFragment StoreEntitySet="Products">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Sections">
+      <EntityTypeMapping TypeName="IsTypeOf(MarcketDBModel.Sections)">
+        <MappingFragment StoreEntitySet="Sections">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Categorie" ColumnName="Categorie" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Employees">
+      <EntityTypeMapping TypeName="IsTypeOf(MarcketDBModel.Employees)">
+        <MappingFragment StoreEntitySet="Employees">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="Fonction" ColumnName="Fonction" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Checkouts">
+      <EntityTypeMapping TypeName="IsTypeOf(MarcketDBModel.Checkout)">
+        <MappingFragment StoreEntitySet="Checkouts">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="SectionsEmployees" TypeName="MarcketDBModel.SectionsEmployees" StoreEntitySet="SectionsEmployees">
+      <EndProperty Name="Sections">
+        <ScalarProperty Name="Id" ColumnName="Sections_Id" />
+      </EndProperty>
+      <EndProperty Name="Employees">
+        <ScalarProperty Name="Id" ColumnName="Employees_Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="ProductsSections" TypeName="MarcketDBModel.ProductsSections" StoreEntitySet="ProductsSections">
+      <EndProperty Name="Products">
+        <ScalarProperty Name="Id" ColumnName="Products_Id" />
+      </EndProperty>
+      <EndProperty Name="Sections">
+        <ScalarProperty Name="Id" ColumnName="Sections_Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="ProductsCheckout" TypeName="MarcketDBModel.ProductsCheckout" StoreEntitySet="ProductsCheckout">
+      <EndProperty Name="Products">
+        <ScalarProperty Name="Id" ColumnName="Products_Id" />
+      </EndProperty>
+      <EndProperty Name="Checkout">
+        <ScalarProperty Name="Id" ColumnName="Checkouts_Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="CheckoutEmployees" TypeName="MarcketDBModel.CheckoutEmployees" StoreEntitySet="CheckoutEmployees">
+      <EndProperty Name="Checkout">
+        <ScalarProperty Name="Id" ColumnName="Checkouts_Id" />
+      </EndProperty>
+      <EndProperty Name="Employees">
+        <ScalarProperty Name="Id" ColumnName="Employees_Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>

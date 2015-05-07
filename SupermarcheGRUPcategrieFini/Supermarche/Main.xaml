@@ -1,0 +1,23 @@
+﻿<UserControl x:Class="Supermarche.Main"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:controls="http://metro.mahapps.com/winfx/xaml/controls"
+             mc:Ignorable="d" 
+             d:DesignHeight="600" d:DesignWidth="800">
+    <Grid Margin="10,10,10,10">
+
+        <controls:Tile x:Name="SupermarcheMap" Title="Supermarche Map" 
+                    TiltFactor="2"
+                    Width="150" Height="100" 
+                    Count="" Margin="139,230,483,219" Background="#FF00A21B" Click="marchemap_click">
+        </controls:Tile>
+
+        <controls:Tile Title="Administration" 
+                    TiltFactor="2"
+                    Width="150" Height="100" 
+                    Count="" Margin="509,230,113,219" Background="#FF2D8BEE" Click="Settings_click">
+        </controls:Tile>
+    </Grid>
+</UserControl>

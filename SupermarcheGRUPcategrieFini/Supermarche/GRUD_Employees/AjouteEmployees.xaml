@@ -1,0 +1,24 @@
+﻿<Controls:MetroWindow x:Class="Supermarche.GRUD_Employees.AjouteEmployees"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        Title="Ajoute Catégorie" Height="300" Width="525"
+        ShowTitleBar="True"
+        ShowIconOnTitleBar="True"  
+        EnableDWMDropShadow="True"
+        ResizeMode="NoResize"
+        WindowTransitionsEnabled="True"
+        WindowStartupLocation="CenterScreen">
+
+    <Grid x:Name="GridTable" Margin="10">
+        <TextBox x:Name="NomDeEmployee" Controls:TextBoxHelper.Watermark=" ex:     Michel " Controls:TextBoxHelper.ClearTextButton="True" HorizontalAlignment="Left" Height="23" Margin="230,20,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="245"/>
+        <Label Content="Name :" HorizontalAlignment="Left" Margin="55,20,0,0" VerticalAlignment="Top" Height="26" Width="98"/>
+        <Button x:Name="Valiter" Content="Ajouter" HorizontalAlignment="Left" Margin="190,190,0,0" VerticalAlignment="Top" Width="85" Click="AjouteEmp"/>
+        <Label Content="First Name :" HorizontalAlignment="Left" Margin="55,87,0,0" VerticalAlignment="Top" Height="26" Width="98"/>
+        <Label Content="Manager :" HorizontalAlignment="Left" Margin="55,151,0,0" VerticalAlignment="Top" Height="26" Width="98"/>
+        <TextBox x:Name="PrenomDeEmployee" Controls:TextBoxHelper.Watermark=" ex:     Michel " Controls:TextBoxHelper.ClearTextButton="True" HorizontalAlignment="Left" Height="23" Margin="230,87,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="245"/>
+        <Controls:ToggleSwitch x:Name="StatusProduct" Margin="325,145,55,71" Checked="StatusManager" />
+
+    </Grid>
+
+</Controls:MetroWindow>

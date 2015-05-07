@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="e7ca5087899a46eb929b254d73dcbfa6" Name="Diagram1" >
+        <EntityTypeShape EntityType="MarcketDBModel.Products" Width="1.5" PointX="4.125" PointY="1.125" />
+        <EntityTypeShape EntityType="MarcketDBModel.Sections" Width="1.5" PointX="7.875" PointY="1.5" />
+        <EntityTypeShape EntityType="MarcketDBModel.Employees" Width="1.5" PointX="7.875" PointY="4" />
+        <EntityTypeShape EntityType="MarcketDBModel.Checkout" Width="1.5" PointX="4.125" PointY="4.375" />
+        <AssociationConnector Association="MarcketDBModel.SectionsEmployees" />
+        <AssociationConnector Association="MarcketDBModel.ProductsSections" />
+        <AssociationConnector Association="MarcketDBModel.ProductsCheckout" />
+        <AssociationConnector Association="MarcketDBModel.CheckoutEmployees" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
